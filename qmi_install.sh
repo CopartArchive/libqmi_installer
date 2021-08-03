@@ -50,8 +50,8 @@ if [[ $? -ne 0 ]]; then colored_echo "Download failed" ${RED}; exit 1; fi
 wget --no-check-certificate $REPO_PATH/$RECONNECT_SCRIPT_NAME
 if [[ $? -ne 0 ]]; then colored_echo "Download failed" ${RED}; exit 1; fi
 
-wget --no-check-certificate $REPO_PATH/$SERVICE_NAME
-if [[ $? -ne 0 ]]; then colored_echo "Download failed" ${RED}; exit 1; fi
+# wget --no-check-certificate $REPO_PATH/$SERVICE_NAME
+# if [[ $? -ne 0 ]]; then colored_echo "Download failed" ${RED}; exit 1; fi
 
 # Update APN in script
 sed -i "s/#APN/$carrierapn/" $CONNECT_SCRIPT_NAME
@@ -63,8 +63,8 @@ mv $SERVICE_NAME /etc/systemd/system/
 
 sudo $WORK_PATH/$CONNECT_SCRIPT_NAME
 
-systemctl daemon-reload
-systemctl enable $SERVICE_NAME
+# systemctl daemon-reload
+# systemctl enable $SERVICE_NAME
 			  
 read -p "Press ENTER key to reboot" ENTER
 
