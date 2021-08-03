@@ -6,6 +6,7 @@
 WORK_PATH="/opt/copart"
 
 REPO_PATH="https://raw.githubusercontent.com/copartit/libqmi_installer/master"
+CONNECT_SCRIPT_NAME="qmi_connect.sh"
 RECONNECT_SCRIPT_NAME="qmi_reconnect.sh"
 SERVICE_NAME="qmi_reconnect.service"
 
@@ -43,6 +44,9 @@ sudo apt update && sudo apt install libqmi-utils udhcpc -y
 sudo qmicli -d /dev/cdc-wdm0 --dms-set-operating-mode='online'
 
 # Download other scritps
+wget --no-check-certificate $REPO_PATH/$CONNECT_SCRIPT_NAME
+if [[ $? -ne 0 ]]; then colored_echo "Download failed" ${RED}; exit 1; fi
+
 wget --no-check-certificate $REPO_PATH/$RECONNECT_SCRIPT_NAME
 if [[ $? -ne 0 ]]; then colored_echo "Download failed" ${RED}; exit 1; fi
 
@@ -50,12 +54,14 @@ wget --no-check-certificate $REPO_PATH/$SERVICE_NAME
 if [[ $? -ne 0 ]]; then colored_echo "Download failed" ${RED}; exit 1; fi
 
 # Update APN in script
-sed -i "s/#APN/$carrierapn/" $RECONNECT_SCRIPT_NAME
+sed -i "s/#APN/$carrierapn/" $CONNECT_SCRIPT_NAME
 
 # Move scripts to work path
-sudo chmod +x $RECONNECT_SCRIPT_NAME
-mv $RECONNECT_SCRIPT_NAME $WORK_PATH
-sudo .$WORK_PATH/$RECONNECT_SCRIPT_NAME
+sudo chmod +x $RECONNECT_SCRIPT_NAME $CONNECT_SCRIPT_NAME
+mv $RECONNECT_SCRIPT_NAME $CONNECT_SCRIPT_NAME $WORK_PATH
+mv $SERVICE_NAME /etc/systemd/system/
+
+sudo $WORK_PATH/$RECONNECT_SCRIPT_NAME
 
 systemctl daemon-reload
 systemctl enable $SERVICE_NAME
