@@ -1,10 +1,10 @@
 # libqmi_installer
-libqmi installer for Sixfab hat 
+libqmi installer for Sixfab hat <br />
 https://docs.sixfab.com/page/qmi-interface-internet-connection-setup-using-sixfab-shield-hat
 
 
-#How to run?
+# How to run?
 
-wget https://raw.githubusercontent.com/copartit/libqmi_installer/master/qmi_install.sh
-sudo chmod +x qmi_install.sh
-sudo ./qmi_install.sh
+wget https://raw.githubusercontent.com/copartit/libqmi_installer/master/qmi_install.sh <br />
+sudo chmod +x qmi_install.sh <br />
+sudo ./qmi_install.sh <br />
