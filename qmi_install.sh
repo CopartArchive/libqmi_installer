@@ -42,16 +42,19 @@ sudo apt update && sudo apt install libqmi-utils udhcpc -y
 
 sudo qmicli -d /dev/cdc-wdm0 --dms-set-operating-mode='online'
 
+# Download other scritps
 wget --no-check-certificate $REPO_PATH/$RECONNECT_SCRIPT_NAME
 if [[ $? -ne 0 ]]; then colored_echo "Download failed" ${RED}; exit 1; fi
 
 wget --no-check-certificate $REPO_PATH/$SERVICE_NAME
 if [[ $? -ne 0 ]]; then colored_echo "Download failed" ${RED}; exit 1; fi
 
+# Update APN in script
 sed -i "s/#APN/$carrierapn/" $RECONNECT_SCRIPT_NAME
 
+# Move scripts to work path
+sudo chmod +x $RECONNECT_SCRIPT_NAME
 mv $RECONNECT_SCRIPT_NAME $WORK_PATH
-
 sudo .$WORK_PATH/$RECONNECT_SCRIPT_NAME
 
 systemctl daemon-reload
