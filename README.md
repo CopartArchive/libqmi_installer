@@ -5,6 +5,8 @@ https://docs.sixfab.com/page/qmi-interface-internet-connection-setup-using-sixfa
 
 # How to run?
 
-wget https://raw.githubusercontent.com/copartit/libqmi_installer/master/qmi_install.sh <br />
-sudo chmod +x qmi_install.sh <br />
-sudo ./qmi_install.sh <br />
+``` bash
+wget https://raw.githubusercontent.com/copartit/libqmi_installer/master/qmi_install.sh 
+sudo chmod +x qmi_install.sh
+sudo ./qmi_install.sh
+```
