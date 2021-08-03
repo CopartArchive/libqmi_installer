@@ -5,8 +5,7 @@
 
 WORK_PATH="/opt/copart"
 
-REPO_PATH="https://raw.githubusercontent.com/copartit/libqmi_installer"
-BRANCH=master
+REPO_PATH="https://raw.githubusercontent.com/copartit/master/libqmi_installer"
 RECONNECT_SCRIPT_NAME="qmi_reconnect.sh"
 SERVICE_NAME="qmi_reconnect.service"
 
