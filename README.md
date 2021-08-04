@@ -5,6 +5,21 @@ https://docs.sixfab.com/page/qmi-interface-internet-connection-setup-using-sixfa
 
 # How to run?
 
+Pre-requisite:
+**Before running the below, please make sure the ppp and reconnect service are stopped and disabled!**
+```
+sudo systemctl stop ppp_connection_manager.service
+sudo systemctl disable ppp_connection_manager.service
+sudo systemctl stop reconnect.service
+sudo systemctl disable reconnect.service
+```
+
+Do below command to make sure no ppp is left running.
+```
+ps -ef | grep ppp
+```
+
+Paste the below command and provide the APN on prompt
 ``` bash
 wget https://raw.githubusercontent.com/copartit/libqmi_installer/master/qmi_install.sh 
 sudo chmod +x qmi_install.sh
