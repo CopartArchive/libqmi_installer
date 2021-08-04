@@ -19,7 +19,7 @@ Do below command to make sure no ppp is left running.
 ps -ef | grep ppp
 ```
 
-Paste the below command and provide the APN on prompt
+Paste the below commands and provide the APN on prompt
 ``` bash
 wget https://raw.githubusercontent.com/copartit/libqmi_installer/master/qmi_install.sh 
 sudo chmod +x qmi_install.sh
