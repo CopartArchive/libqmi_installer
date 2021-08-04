@@ -4,14 +4,14 @@
 
 while true; do
 
-	ping -I wwan0 -c 1 -s 0 8.8.8.8
+	ping -I wwan0 -c 1 -s 0 8.8.8.8 1> /dev/null
 
 	if [ $? -eq 0 ]; then
-		echo "Connection up, reconnect not required..."
+		#echo "Connection up, reconnect not required..."
 	else
 		echo "Connection down, reconnecting..."
         sudo ./qmi_connect.sh
 	fi
 
-	sleep 10
+	sleep 30
 done
