@@ -3,7 +3,7 @@ Description=QMI Auto Connection
 After=network.target
 
 [Service]
-ExecStart=/bin/sh /usr/src/qmi_reconnect.sh
+ExecStart=/bin/sh qmi_reconnect.sh
 WorkingDirectory=/opt/copart/
 StandardOutput=inherit
 StandardError=inherit
