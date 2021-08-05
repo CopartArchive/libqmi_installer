@@ -25,3 +25,11 @@ wget https://raw.githubusercontent.com/copartit/libqmi_installer/master/qmi_inst
 sudo chmod +x qmi_install.sh
 sudo ./qmi_install.sh
 ```
+
+
+**Uninstall**
+To uninstall
+```
+sudo systemctl stop qmi_reconnect.service
+sudo systemctl disable qmi_reconnect.service
+```
