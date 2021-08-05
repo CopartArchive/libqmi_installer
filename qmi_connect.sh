@@ -12,7 +12,7 @@ sudo qmicli -d /dev/cdc-wdm0 --wda-get-data-format
 
 sudo qmicli -p -d /dev/cdc-wdm0 --device-open-net='net-raw-ip|net-no-qos-header' --wds-start-network="apn='#APN',ip-type=4" --client-no-release-cid
 
-sudo qmicli -d /dev/cdc-wdm0 --wds-set-autoconnect-settings=enabled
+# sudo qmicli -d /dev/cdc-wdm0 --wds-set-autoconnect-settings=enabled
 
 # Lastly, configure the IP address and the default route with udhcpc.
 sudo udhcpc -q -f -i wwan0
