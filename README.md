@@ -29,8 +29,6 @@ sudo ./qmi_install.sh
 <br />
 <br />
 **Uninstall** 
-<br />
-To uninstall
 ```
 sudo systemctl stop qmi_reconnect.service
 sudo systemctl disable qmi_reconnect.service
